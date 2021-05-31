@@ -1,0 +1,23 @@
+{
+  "name": "tulsaMaps",
+  "version": "1.0.0",
+  "description": "this is empty",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelliemogg/tulsaMaps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kelliemogg/tulsaMaps/issues"
+  },
+  "homepage": "https://github.com/kelliemogg/tulsaMaps#readme",
+  "dependencies": {
+    "mongodb": "^3.6.9"
+  }
+}
