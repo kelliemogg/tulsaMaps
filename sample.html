@@ -8,11 +8,19 @@
     <script src="./index.js"></script>
   </head>
   <body>
+    <input
+    id="pac-input"
+    class="controls"
+    type="text"
+    placeholder="Search Box"
+  />
     <div id="map"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcLPo0abJIq-EjTVU1FupiFM6vzm0i7Jk&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcLPo0abJIq-EjTVU1FupiFM6vzm0i7Jk&callback=initAutocomplete&libraries=places&v=weekly"
+      async
+    ></script>
       async
     ></script>
   </body>
