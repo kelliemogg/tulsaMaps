@@ -4,16 +4,27 @@ const app = express();
 let port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const DownTown = require('./models/place');
+const { MongoClient } = require('mongodb');
+const Cors = require('cors');
+const BodyParser = require('body-parser');
+
+
 
 //Connects to MongoDB
 const dbURI = 'mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const client = MongoClient('mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority');
 
 
 // Static files
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
+
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+app.use(Cors());
 
 
 // Get and Response
@@ -112,8 +123,34 @@ app.get('/show-gym', (req, res) => {
     });
 });
 
+let collection;
 
-// Listen on port
-app.listen(port, () => {
-  console.info(`App is listening on part http://localhost:${port}`);
+app.listen('5000', async () => {
+  try {
+    await client.connect();
+    collection = client.db('LocallyOwned').collection('Downtown');
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+app.get('/search', async (request, response) => {
+  try {
+    let result = await collection.aggregate([
+      {
+        "$search": {
+          "index": 'default',
+          "text": {
+            "query": '${request.query.term}',
+            "path": {
+              'wildcard': '*'
+            }
+          }
+        }
+      }
+    ]).toArray();
+    response.send(result);
+  } catch (e) {
+    response.status(500).send({ message: e.message });
+  }
 });
