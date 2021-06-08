@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 let collection;
 
-app.listen('5000', async () => {
+app.listen(port, async () => {
   try {
     await client.connect();
     collection = client.db('LocallyOwned').collection('Downtown');
@@ -47,7 +47,6 @@ app.listen('5000', async () => {
 app.get('/search', async (request, response) => {
   try {
     input = request.query.search
-    console.log(input)
     let result = await collection.aggregate([
       {
         "$search": {
@@ -61,7 +60,6 @@ app.get('/search', async (request, response) => {
         }
       }
     ]).toArray();
-    console.log(result);
     response.send(result);
   } catch (e) {
     response.status(500).send({ message: e.message });
