@@ -27,4 +27,14 @@ function initAutocomplete() {
 };
   
   map.setOptions({ styles: styles["hide"] });
+
+  const uluru = { lat: 36.15839520000001, lng: -95.9946482 };
+
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+
+  
 }
+
