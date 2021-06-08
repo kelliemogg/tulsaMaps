@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 let collection;
 
-app.listen('5000', async () => {
+app.listen(port, async () => {
   try {
     await client.connect();
     collection = client.db('LocallyOwned').collection('Downtown');
