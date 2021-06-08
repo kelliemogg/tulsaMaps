@@ -1,20 +1,21 @@
 // imports
+const { MongoClient, ObjectID } = require('mongodb');
 const express = require('express');
-const app = express();
-let port = process.env.PORT || 5000;
-const mongoose = require('mongoose');
-const DownTown = require('./models/place');
-const { MongoClient } = require('mongodb');
 const Cors = require('cors');
-const BodyParser = require('body-parser');
-
-
+//const BodyParser = require('body-parser');
 
 //Connects to MongoDB
-const dbURI = 'mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient('mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority', { useUnifiedTopology: true });
+const app = express();
 
-const client = MongoClient('mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority');
+let port = process.env.PORT || 5000;
+
+
+//Connects to Mongoose
+// const mongoose = require('mongoose');
+// const DownTown = require('./models/place');
+// const dbURI = 'mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority';
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 // Static files
@@ -22,8 +23,8 @@ app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(Cors());
 
 
@@ -139,11 +140,11 @@ app.get('/search', async (request, response) => {
     let result = await collection.aggregate([
       {
         "$search": {
-          "index": 'default',
+        "index": 'default',
           "text": {
-            "query": '${request.query.term}',
+            "query": '${coffee}',
             "path": {
-              'wildcard': '*'
+               'wildcard': '*'
             }
           }
         }
@@ -153,4 +154,13 @@ app.get('/search', async (request, response) => {
   } catch (e) {
     response.status(500).send({ message: e.message });
   }
+
+app.get("/get/:id", async (request, response) => {
+  try {
+    let result = await collection.findOne({ "_id": ObjectID(request.params.id) });
+    response.send(result);
+  } catch (e) {
+    response.status(500).send({ message: e.message });
+  }
+});
 });
