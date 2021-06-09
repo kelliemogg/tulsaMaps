@@ -33,6 +33,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/home.html')
 });
 
+app.get('/about', (req, res) => {
+  res.sendFile(__dirname + '/views/about.html')
+});
+
 let collection;
 
 app.listen(port, async () => {
