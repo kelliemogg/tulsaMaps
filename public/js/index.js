@@ -25,6 +25,30 @@ function initAutocomplete() {
     },
   ],
 };
-  
+
   map.setOptions({ styles: styles["hide"] });
+
+  const uluru = { lat: 36.15839520000001, lng: -95.9946482 };
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+
+  
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+
+document.getElementById('click').addEventListener('click', function (event) {
+                // let data = fetch(`http://localhost:5500/search?search=${request.term}`)
+                //     .then(results => results.json())
+                // response(data);
+                // console.log(results)
+                let searchBar = document.getElementById('searchBar')
+                axios.get(`http://localhost:5000/search?search=${searchBar.value}`)
+                .then(function (response){
+                    console.log(response)
+                })
+        });
+
+});

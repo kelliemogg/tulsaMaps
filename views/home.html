@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Simple Map</title>
+    <title>Welcome to Tulsa T-Map</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <script src="js/index.js"></script>
     <!-- Jquery-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Bootstrap CSS and Google Icons-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
@@ -43,94 +42,64 @@
       <div class="container position-relative">
           <div class="row justify-content-center">
               <div class="col-xl-5">
-                  <div class="text-center text-white">
-                      <!-- Page heading-->
-                      <!-- <h2 class="mb-5">Welcome to Tulsa T-Maps!</h2> -->
-                      <!-- Search Bar-->
-                      <br><br><br>
-                      <form method="GET">
+                  <div class="ui-widget">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <!-- Search Bar-->
+                        <br><br><br>
+                        <!-- <div class="input-group input-group-lg">
+                          <input id="searchBar" class="form-control" type="text" name="search" maxlength="128" placeholder="Search Box" aria-describedby="button-submit"/>
+                          <input type="submit" id="click" value="Search" class="btn btn-primary"> <i class="bi bi-search"></i>
+                        </div> -->
                         <div class="input-group input-group-lg">
-                            <input class="form-control" type="text" name="search" placeholder="Enter your place..." aria-label="Enter your place..." aria-describedby="button-submit"/>
-                            <button type="submit" id="button-submit" value="Search" class="btn btn-primary"> <i class="bi bi-search"></i></button>
+                          <input type="text" id="searchBar" name="search" maxlength="128" class="form-control" placeholder="Search Box"/>
+                          <button type="submit" value="Search" class="btn btn-primary" id="click"><i class="bi bi-search"></i></button>
                         </div>
-                      </form>
+                    </div>
                   </div>
               </div>
           </div>
       </div>
     </header>
-    <!-- <div class="blogs content"></div>
-    <div class="ui-widget">
-      <form method="GET" class="form-inline">
-        <input type="text" name="search" maxlength="128" class="form-controls" placeholder="Search Box"/>
-        <input type="submit" value="Search" class="btn btn-primary">
-      </form>
-    <ul id="places_output"></ul>
-  </div>
-</div> -->
-  <script>
-    $(document).ready(function () {
-      $("#place").autocomplete({
-            source: async function(request, response) {
-                let data = await fetch(`http://localhost:5000/search?search=${request.term}`)
-                    .then(results => results.json())
-                    .then(results => results.map(result => {
-                        return { label: result.name, value: result.name, id: result._id };
-                    }));
-                response(data);
-            },
-            minLength: 2,
-            select: function(event, ui) {
-              fetch('http://localhost:5000/get/${ui.item.id}')
-                .then(result => result.json())
-                .then(result => {
-                  $("#places_output").empty();
-                  result.places_output.forEach(place => {
-                    $("#places_output").append(`<li>${place}</li>`);
-                  })
-
-                })
-            }
-                    });
-        });
-  </script>
+     <!-- GOOGLE MAP HERE-->
     <div id="map"></div>
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_8hfUgIKpvjwAX-OYIHGAW5v1BTFO-bs&callback=initAutocomplete&libraries=places&v=weekly">
-    </script>
        <!-- Footer-->
-      <footer class="footer bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="https://tulsamaps.herokuapp.com/about">About</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Contact</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi bi-github fs-3"></i></a>
-                        </li>
-                        <li class="list-inline-item me-4">
-                            <a href="https://twitter.com/holbertonschool"><i class="bi-twitter fs-3"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><i class="bi bi-envelope fs-3"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer bg-light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                  <ul class="list-inline mb-2">
+                      <li class="list-inline-item"><a href="https://tulsamaps.herokuapp.com/about">About</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Contact</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                  </ul>
+                  <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
+              </div>
+              <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                  <ul class="list-inline mb-0">
+                      <li class="list-inline-item me-4">
+                          <a href="#!"><i class="bi bi-github fs-3"></i></a>
+                      </li>
+                      <li class="list-inline-item me-4">
+                          <a href="https://twitter.com/holbertonschool"><i class="bi-twitter fs-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="#!"><i class="bi bi-envelope fs-3"></i></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </footer>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_8hfUgIKpvjwAX-OYIHGAW5v1BTFO-bs&callback=initAutocomplete&libraries=places&v=weekly">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
   </body>
 </html>
