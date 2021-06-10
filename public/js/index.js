@@ -45,7 +45,7 @@ document.getElementById('click').addEventListener('click', function (event) {
                 // response(data);
                 // console.log(results)
                 let searchBar = document.getElementById('searchBar')
-                axios.get(`http://localhost:5000/search?search=${searchBar.value}`)
+                axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
                 .then(function (response){
                     console.log(response)
                 })
