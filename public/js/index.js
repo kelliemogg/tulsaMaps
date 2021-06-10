@@ -45,17 +45,27 @@ document.getElementById('click').addEventListener('click', function (event) {
       // let map = document.getElementById('map')
       const uluru = { lat: 36.15839520000001, lng: -95.9946482 };
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+        zoom: 15,
         center: uluru
       });
       let searchBar = document.getElementById('searchBar')
       axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
       .then(function (response){
           console.log(response);
-          const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
+          let marker;
+          for (x = 0; x < response.data.length; x++) {
+              currentPlace = response.data[x]
+              currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates
+              console.log(currentCoords)
+              currentLat = currentCoords[1]
+              currentLon = currentCoords[0]
+              coords = { lat: currentLat, lng: currentLon }
+              marker = new google.maps.Marker({
+              position: coords,
+              map: map,
         });
+          };
+        
       })
   });
 });
