@@ -43,6 +43,7 @@ app.listen(port, async () => {
   try {
     await client.connect();
     collection = client.db('LocallyOwned').collection('Downtown');
+    console.info(`App is listening on port http://localhost:${port}`);
   } catch (e) {
     console.error(e);
   }
