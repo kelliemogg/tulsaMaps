@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       .then(function (response) {
         console.log(response);
         let marker;
+        var infowindow = new google.maps.InfoWindow;
         for (x = 0; x < response.data.length; x++) {
           currentPlace = response.data[x];
           currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
@@ -78,6 +79,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
             position: coords,
             map: map
           });
+        //    marker.addListener("click", (function(marker, x) => {
+        //     markerCoords = JSON.parse(JSON.stringify(marker.getPosition()));
+        //     for (x = 0; x < response.data.length; x++) {
+        //         currentPlace = response.data[x];
+        //         currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
+        //         if (markerCoords.lat === currentCoords[1]) {
+        //             console.log(currentPlace)
+        //         }
+        //     }
+
+        //     })(marker, x));
+        google.maps.event.addListener(marker, 'click', (function(marker, x) {
+         return function() {
+             infowindow.setContent(response.data[x]);
+             infowindow.open(map, marker);
+             console.log(response.data[x])
+         }
+    })(marker, x));
         }
       });
   });
