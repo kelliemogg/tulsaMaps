@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       .then(function (response) {
         console.log(response);
         let marker;
+        var infowindow = new google.maps.InfoWindow;
         for (x = 0; x < response.data.length; x++) {
           currentPlace = response.data[x];
           currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
@@ -78,6 +79,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
             position: coords,
             map: map
           });
+        google.maps.event.addListener(marker, 'click', (function(marker, x) {
+          return function() {
+            //filter out the response data
+            Name = JSON.stringify(response.data[x].Name);
+            Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
+            Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
+            const contentString = 
+              "<div> <b>Place Name:</b>" + Name +
+              "<b>Place Address:</b>" + Address + 
+              "<a href=" + Website + ">Clickable Website</a>" +
+              "</div>";
+            // infowindow.setContent(JSON.stringify(response.data[x]));
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+            console.log(response.data[x])
+
+          }
+          })(marker, x));
         }
       });
   });
