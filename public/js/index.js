@@ -77,7 +77,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
           coords = { lat: currentLat, lng: currentLon };
           marker = new google.maps.Marker({
             position: coords,
-            map: map
+            map: map,
+            icon: {                             
+              url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                           }
           });
         google.maps.event.addListener(marker, 'click', (function(marker, x) {
           return function() {
@@ -86,9 +88,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
             Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
             const contentString = 
-              "<div> <b>Place Name:</b>" + Name +
-              "<b>Place Address:</b>" + Address + 
-              "<a href=" + Website + ">Clickable Website</a>" +
+              "<div> <b>" + Name +"</b>" + "<br>" +
+              "<b>Address:</b>" + Address + "<br>" +
+              "<a href=" + Website + ">Website</a>" +
               "</div>";
             // infowindow.setContent(JSON.stringify(response.data[x]));
             infowindow.setContent(contentString);
