@@ -79,24 +79,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
             position: coords,
             map: map
           });
-        //    marker.addListener("click", (function(marker, x) => {
-        //     markerCoords = JSON.parse(JSON.stringify(marker.getPosition()));
-        //     for (x = 0; x < response.data.length; x++) {
-        //         currentPlace = response.data[x];
-        //         currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
-        //         if (markerCoords.lat === currentCoords[1]) {
-        //             console.log(currentPlace)
-        //         }
-        //     }
-
-        //     })(marker, x));
         google.maps.event.addListener(marker, 'click', (function(marker, x) {
-         return function() {
-             infowindow.setContent(response.data[x]);
-             infowindow.open(map, marker);
-             console.log(response.data[x])
-         }
-    })(marker, x));
+          return function() {
+            //filter out the response data
+            Name = JSON.stringify(response.data[x].Name);
+            Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
+            Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
+            const contentString = 
+              "<div> <b>Place Name:</b>" + Name +
+              "<b>Place Address:</b>" + Address + 
+              "<a href=" + Website + ">Clickable Website</a>" +
+              "</div>";
+            // infowindow.setContent(JSON.stringify(response.data[x]));
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+            console.log(response.data[x])
+
+          }
+          })(marker, x));
         }
       });
   });
