@@ -1,5 +1,4 @@
 let map;
-
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
@@ -27,25 +26,14 @@ function initAutocomplete () {
   };
 
   map.setOptions({ styles: styles.hide });
-
-  // const uluru = { lat: 36.15839520000001, lng: -95.9946482 };
-  // const marker = new google.maps.Marker({
-  //   position: uluru,
-  //   map: map,
-  // });
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
   document.getElementById('click').addEventListener('click', function (event) {
-    // let data = fetch(`http://localhost:5500/search?search=${request.term}`)
-    //     .then(results => results.json())
-    // response(data);
-    // console.log(results)
-    // let map = document.getElementById('map')
-    const uluru = { lat: 36.15839520000001, lng: -95.9946482 };
+    const tulsaCenter = { lat: 36.15839520000001, lng: -95.9946482 };
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
-      center: uluru
+      center: tulsaCenter
     });
     const styles = {
     hide: [
@@ -65,9 +53,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const searchBar = document.getElementById('searchBar');
     axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
         let marker;
-        var infowindow = new google.maps.InfoWindow;
+        var infowindow = new google.maps.InfoWindow({
+          maxWidth: 240,
+        });
         for (x = 0; x < response.data.length; x++) {
           currentPlace = response.data[x];
           currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
@@ -83,20 +73,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
           });
         google.maps.event.addListener(marker, 'click', (function(marker, x) {
           return function() {
-            //filter out the response data
+            //Filter out the response data. Get name, address, website of each Place
             Name = JSON.stringify(response.data[x].Name);
             Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
             Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
             const contentString = 
               "<div> <b>" + Name +"</b>" + "<br>" +
               "<b>Address:</b>" + Address + "<br>" +
-              "<a href=" + Website + ">Website</a>" +
+              "<a href=" + Website + ">" + "<b>" + Website + "</b>" + "</a>" +
               "</div>";
             // infowindow.setContent(JSON.stringify(response.data[x]));
             infowindow.setContent(contentString);
             infowindow.open(map, marker);
-            console.log(response.data[x])
-
+            // console.log(response.data[x])
           }
           })(marker, x));
         }
