@@ -10990,11 +10990,10 @@ header.masthead h1, header.masthead .h1 {
 div.mast {
   position: relative;
   background: url("../img/TulsA.png") no-repeat center center;
+  min-height: 30rem;
   background-size: cover;
-  max-height:30%;
   padding-top: 12rem;
   padding-bottom: 8rem;
-  margin: 50px auto;
   }
   
   div.mast:before {
