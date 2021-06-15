@@ -1,10 +1,10 @@
 # tulsaMaps
 
 ## Description
-Hi there! Thanks for stopping by and checking out our project page for tulsaMaps.
-Our web application, tulsaMaps, is a map containing locally owned businesses near the downtown Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from the database originally come from Google Places API. This project is still in development.
-We as a group (please see Authors section) want to bring awareness to local businesses as they are often overlooked by bigger franchises. This project was based on the sole fact that localizing the Oklahoma economy would be beneficial to everyone and we feel passionate about giving the world an easily accessible map with a plethora of places to look at. You might be surprised by the amount of places you come across just within downtown Tulsa alone.
-To utilize our localized map, all our application needs to gather up some suggestions for the user is a quick keyword (or even specific business) in the search bar and then a click of the search button to the right of the search bar. This will populate many places straight from our database.
+Hi there! Thanks for stopping by and checking out our project page for tulsaMaps.  
+Our web application, tulsaMaps, is a map containing locally owned businesses near the downtown Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from the database originally come from Google Places API. This project is still in development.  
+We as a group (please see Authors section) want to bring awareness to local businesses as they are often overlooked by bigger franchises. This project was based on the sole fact that localizing the Oklahoma economy would be beneficial to everyone and we feel passionate about giving the world an easily accessible map with a plethora of places to look at. You might be surprised by the amount of places you come across just within downtown Tulsa alone.  
+To utilize our localized map, all our application needs to gather up some suggestions for the user is a quick keyword (or even specific business) in the search bar and then a click of the search button to the right of the search bar. This will populate many places straight from our database.  
 We mostly used JavaScript to build this application, along with CSS and HTML for our front-end work, and Node.js to add a real-time experience for the user.
 
 ## Languages
