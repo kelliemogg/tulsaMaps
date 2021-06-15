@@ -1,9 +1,9 @@
-# tulsaMaps
+# Tulsa Maps
 
 ## Description
-Hi there! Thanks for stopping by and checking out our project page for tulsaMaps.  
+Hi there! Thanks for stopping by and checking out our project page for Tulsa Maps.  
 
-Our web application, tulsaMaps, is a map containing locally owned businesses near the downtown Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from the database originally come from Google Places API. This project is still in development.  
+Our web application, Tulsa Maps, is a web mapping platform featuring locally owned business in the Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from the database originally come from Google Places API. This project is still in development, and as of June 2020, our focus has primarily been the downtown Tulsa area.  
 
 We as a group (please see Authors section) want to bring awareness to local businesses as they are often overlooked by bigger franchises. This project was based on the sole fact that localizing the Oklahoma economy would be beneficial to everyone and we feel passionate about giving the world an easily accessible map with a plethora of places to look at. You might be surprised by the amount of places you come across just within downtown Tulsa alone.  
 
@@ -17,22 +17,8 @@ HTML, CSS, Node.js, JavaScript
 ## Technologies Used
 MongoDB database, Heroku hosting platform
 
-## General Use
-1. Clone this repository.
-2. Once the repository is cloned, run the command as follows:
-``` bash
-node app.js
-```
-3. Locate the browser and run **localhost:5000**
-
 ## Installation
-Using npm:
-``` bash
-npm install axios
-```
-``` bash
-npm install express --save
-```
+To set up and install `express` web-framework, use `npm init` and `npm install express --save`
 
 ## **Repository Contents by File**
 #### /tulsaMaps/app.js
@@ -46,74 +32,6 @@ npm install express --save
 
 #### /tulsaMaps/views/home.html
 - All HTML for this application can be found in this file
-
-## GET Request for the Search Engine
-```
-app.get('/search', async (request, response) => {
-  try {
-    input = request.query.search
-    let result = await collection.aggregate([
-      {
-        "$search": {
-        "index": 'default',
-          "text": {
-            "query": `${input}`,
-            "path": {
-               'wildcard': '*'
-            }
-          }
-        }
-      }
-    ]).toArray();
-    response.send(result);
-  } catch (e) {
-    response.status(500).send({ message: e.message });
-  }
-});
-```
-
-## Axios.get Method (to render markers)
-```
-    const searchBar = document.getElementById('searchBar');
-    axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
-      .then(function (response) {
-        // console.log(response);
-        let marker;
-        var infowindow = new google.maps.InfoWindow({
-          maxWidth: 240,
-        });
-        for (x = 0; x < response.data.length; x++) {
-          currentPlace = response.data[x];
-          currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
-          console.log(currentCoords);
-          currentLat = currentCoords[1];
-          currentLon = currentCoords[0];
-          coords = { lat: currentLat, lng: currentLon };
-          marker = new google.maps.Marker({
-            position: coords,
-            map: map,
-            icon: {                             
-              url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                           }
-          });
-        google.maps.event.addListener(marker, 'click', (function(marker, x) {
-          return function() {
-            //Filter out the response data. Get name, address, website of each Place
-            Name = JSON.stringify(response.data[x].Name);
-            Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
-            Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
-            const contentString = 
-              "<div> <b>" + Name +"</b>" + "<br>" +
-              "<b>Address:</b>" + Address + "<br>" +
-              "<a href=" + Website + ">" + "<b>" + Website + "</b>" + "</a>" +
-              "</div>";
-            // infowindow.setContent(JSON.stringify(response.data[x]));
-            infowindow.setContent(contentString);
-            infowindow.open(map, marker);
-            // console.log(response.data[x])
-          }
-          })(marker, x));
-        }
-```
 
 ## Notes
 #### Full-text Search
