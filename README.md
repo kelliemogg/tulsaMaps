@@ -1,7 +1,11 @@
 # tulsaMaps
 
 ## Description
+Hi there! Thanks for stopping by and checking out our project page for tulsaMaps.
 Our web application, tulsaMaps, is a map containing locally owned businesses near the downtown Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from the database originally come from Google Places API. This project is still in development.
+We as a group (please see Authors section) want to bring awareness to local businesses as they are often overlooked by bigger franchises. This project was based on the sole fact that localizing the Oklahoma economy would be beneficial to everyone and we feel passionate about giving the world an easily accessible map with a plethora of places to look at. You might be surprised by the amount of places you come across just within downtown Tulsa alone.
+To utilize our localized map, all our application needs to gather up some suggestions for the user is a quick keyword (or even specific business) in the search bar and then a click of the search button to the right of the search bar. This will populate many places straight from our database.
+We mostly used JavaScript to build this application, along with CSS and HTML for our front-end work, and Node.js to add a real-time experience for the user.
 
 ## Languages
 HTML, CSS, Node.js, JavaScript
@@ -40,14 +44,72 @@ npm install express --save
 - All HTML for this application can be found in this file
 
 ## GET Request for the Search Engine
-![image]
-(https://user-images.githubusercontent.com/61027706/121940522-d06fe980-cd13-11eb-81a2-16abb53149f2.png)
+```
+app.get('/search', async (request, response) => {
+  try {
+    input = request.query.search
+    let result = await collection.aggregate([
+      {
+        "$search": {
+        "index": 'default',
+          "text": {
+            "query": `${input}`,
+            "path": {
+               'wildcard': '*'
+            }
+          }
+        }
+      }
+    ]).toArray();
+    response.send(result);
+  } catch (e) {
+    response.status(500).send({ message: e.message });
+  }
+});
+```
 
 ## Axios.get Method (to render markers)
-![image]
-(https://user-images.githubusercontent.com/61027706/121941305-b682d680-cd14-11eb-9a45-ebcea3b80ddd.png)
-![image]
-(https://user-images.githubusercontent.com/61027706/121941514-ffd32600-cd14-11eb-8420-28ff3003337f.png)
+```
+    const searchBar = document.getElementById('searchBar');
+    axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
+      .then(function (response) {
+        // console.log(response);
+        let marker;
+        var infowindow = new google.maps.InfoWindow({
+          maxWidth: 240,
+        });
+        for (x = 0; x < response.data.length; x++) {
+          currentPlace = response.data[x];
+          currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
+          console.log(currentCoords);
+          currentLat = currentCoords[1];
+          currentLon = currentCoords[0];
+          coords = { lat: currentLat, lng: currentLon };
+          marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+            icon: {                             
+              url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                           }
+          });
+        google.maps.event.addListener(marker, 'click', (function(marker, x) {
+          return function() {
+            //Filter out the response data. Get name, address, website of each Place
+            Name = JSON.stringify(response.data[x].Name);
+            Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
+            Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
+            const contentString = 
+              "<div> <b>" + Name +"</b>" + "<br>" +
+              "<b>Address:</b>" + Address + "<br>" +
+              "<a href=" + Website + ">" + "<b>" + Website + "</b>" + "</a>" +
+              "</div>";
+            // infowindow.setContent(JSON.stringify(response.data[x]));
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+            // console.log(response.data[x])
+          }
+          })(marker, x));
+        }
+```
 
 ## Notes
 #### Full-text Search
@@ -56,3 +118,9 @@ npm install express --save
 - Once a marker is clicked on by a user, the information window will then be displayed
 - Fuzzy search is in progress
 - Autocomplete search is in progress
+
+## Authors
+- Jasmine Choi
+- Allen Nicholson
+- Kellie Mogg
+- Lauren Dobratz
