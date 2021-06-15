@@ -1,7 +1,12 @@
 .highlight-blue {
+  background: url("../img/mapsdemo.png") no-repeat center center;
+  background-size: cover;
+  max-height:80%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   color: #fff;
   background-color: #7DCFB6;
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
   background-position: center;
 }
