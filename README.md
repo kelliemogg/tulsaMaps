@@ -1,5 +1,7 @@
 # Tulsa Maps
 
+![Image of TulsaMap](https://i.imgur.com/pZYqwlK.png)
+
 ## Description
 Hi there! Thanks for stopping by and checking out our project page for Tulsa Maps.  
 
@@ -11,29 +13,37 @@ To utilize our localized map, all our application needs to gather up some sugges
 
 We mostly used JavaScript to build this application, along with CSS and HTML for our front-end work, and Node.js to add a real-time experience for the user.
 
-## Languages
-HTML, CSS, Node.js, JavaScript
+## Packages / Prerequisites
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Bootstrap
 
-## Technologies Used
-MongoDB database, Heroku hosting platform
+## Technologies
+- MongoDB database
+- Heroku 
 
 ## Installation
 To set up and install `express` web-framework, use `npm init` and `npm install express --save`
 
-## **Repository Contents by File**
-#### /tulsaMaps/app.js
+## Usage
+```node app.js```
+
+## Repository Contents by File
+`/tulsaMaps/app.js`
 - The main file that contains the connection string, static files, and the search GET request
 
-#### /tulsaMaps/public/js/index.js
+`/tulsaMaps/public/js/index.js`
 - Adds the search bar, markers, and displays the information window when the user clicks a marker
 
-#### /tulsaMaps/public/css/styles.css
+`/tulsaMaps/public/css/styles.css`
 - Contains the front-end styles of our application
 
-#### /tulsaMaps/views/home.html
+`/tulsaMaps/views/home.html`
 - All HTML for this application can be found in this file
 
-## Notes
+## Contributing
 #### Full-text Search
 - User input must be spelled correctly and can be either a keyword (coffee, food, gym, etc.) or a business name itself
 - User clicks the search button after entering a keyword or business into the search bar and this will prompt the markers
@@ -41,8 +51,11 @@ To set up and install `express` web-framework, use `npm init` and `npm install e
 - Fuzzy search is in progress
 - Autocomplete search is in progress
 
+## License
+Node.js is available under the [MIT license](https://opensource.org/licenses/MIT)
+
 ## Authors
-- Jasmine Choi
-- Allen Nicholson
-- Kellie Mogg
-- Lauren Dobratz
+- Jasmine Choi <https://github.com/jashjchoi>
+- Allen Nicholson <https://github.com/ranicholson>
+- Kellie Mogg <https://github.com/kelliemogg>
+- Lauren Dobratz <https://github.com/laurendobratz00>
