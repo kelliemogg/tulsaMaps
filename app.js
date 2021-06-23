@@ -8,14 +8,8 @@ const Cors = require('cors');
 const client = new MongoClient('mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority', { useUnifiedTopology: true });
 const app = express();
 
+// Assigning port for Heroku
 let port = process.env.PORT || 5000;
-
-
-// Connects to Mongoose
-// const mongoose = require('mongoose');
-// const DownTown = require('./models/place');
-// const dbURI = 'mongodb+srv://tulsaMapsUser:thereare4ofus!@cluster0.91cna.mongodb.net/LocallyOwned?retryWrites=true&w=majority';
-// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 // Static files
@@ -49,6 +43,8 @@ app.listen(port, async () => {
   }
 });
 
+
+// Searching mongodb database
 app.get('/search', async (request, response) => {
   try {
     input = request.query.search
