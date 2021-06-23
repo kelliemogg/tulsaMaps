@@ -13,6 +13,9 @@ To utilize our localized map, all our application needs to gather up some sugges
 
 We mostly used JavaScript to build this application, along with CSS and HTML for our front-end work, and Node.js to add a real-time experience for the user.
 
+Check out our showcase video:
+[Tulsa Maps - A Local Web Mapping Platform](https://youtu.be/axqKgtl8WJE)
+
 ## Packages / Prerequisites
 - HTML
 - CSS
