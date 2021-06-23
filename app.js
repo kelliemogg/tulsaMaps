@@ -51,11 +51,14 @@ app.get('/search', async (request, response) => {
     let result = await collection.aggregate([
       {
         "$search": {
+// creating an aggregation pipeline with a single search stage
         "index": 'default',
           "text": {
             "query": `${input}`,
+// using the user-provided data as the query
             "path": {
                'wildcard': '*'
+// using a wildcard as the path field to search in all fields
             }
           }
         }

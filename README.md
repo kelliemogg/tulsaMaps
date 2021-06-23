@@ -3,7 +3,7 @@
 ![Image of TulsaMap](https://i.imgur.com/pZYqwlK.png)
 
 ## Description
-Our web application, Tulsa Maps, is a web mapping platform featuring locally owned business in the Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from our database originally come from Google Places API. This project is still in development, and as of June 2021, our focus has primarily been the downtown Tulsa area.  
+Our web application, Tulsa Maps, is a web mapping platform featuring locally owned businesses in the Tulsa area. We have provided a search query that takes key words and finds related businesses through our NoSQL MongoDB database. The places pulled from our database originally come from Google Places API. This project is still in development, and as of June 2021, our focus has primarily been the downtown Tulsa area.  
 
 We as a group (please see Authors section) want to bring awareness to local businesses as they are often overlooked by bigger franchises. This project was based on the sole fact that localizing the Oklahoma economy would be beneficial to everyone and we feel passionate about giving our community an easily accessible map with a plethora of places to find. You might be surprised by the amount of places you come across just within downtown Tulsa alone.  
 

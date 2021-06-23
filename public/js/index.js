@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   map.setOptions({ styles: styles.hide });
     const searchBar = document.getElementById('searchBar');
+// axios GET request for markers and information windows
     axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
       .then(function (response) {
-        // console.log(response);
         let marker;
         var infowindow = new google.maps.InfoWindow({
           maxWidth: 240,
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           marker = new google.maps.Marker({
             position: coords,
             map: map,
-            icon: {                             
+            icon: {
               url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"                           }
           });
         google.maps.event.addListener(marker, 'click', (function(marker, x) {
@@ -75,15 +75,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             Name = JSON.stringify(response.data[x].Name);
             Address = JSON.stringify(response.data[x].googlePlaceInfo.formatted_address);
             Website = JSON.stringify(response.data[x].googlePlaceInfo.website);
-            const contentString = 
+            const contentString =
               "<div> <b>" + Name +"</b>" + "<br>" +
               "<b>Address:</b>" + Address + "<br>" +
               "<a href=" + Website + ">" + "<b>" + Website + "</b>" + "</a>" +
               "</div>";
-            // infowindow.setContent(JSON.stringify(response.data[x]));
             infowindow.setContent(contentString);
             infowindow.open(map, marker);
-            // console.log(response.data[x])
           }
           })(marker, x));
         }
