@@ -9,11 +9,12 @@ We as a group (please see Authors section) want to bring awareness to local busi
 
 To utilize our localized map, all our application needs to gather up some suggestions for the user is a quick keyword (or even specific business) in the search bar and then a click of the search button to the right of the search bar. This will populate relevant businesses straight from our database.  
 
-We mostly used JavaScript to build this application, along with CSS and HTML for our front-end work, and Node.js to add a real-time experience for the user.  
+We mostly used JavaScript to build this application, along with CSS and HTML for our front-end work, and Node.js to add a real-time experience for the user. 
 
-To further this project, we envision having autocomplete and misspelled words corrected on the search bar as typed. We also plan on creating a way to search through our data by category (E.g. Black-owned businesses, women-owned businesses, etc.). Another goal is to display more information in the windows and/or display infomation after a search at the bottom of the page without having to click the marker.  
+## Goals
+To further this project, we plan on adding autocomplete and a feature that corrects misspelled words on the search bar. We also plan on creating a way to search for a business by category (E.g. Black-owned businesses, women-owned businesses, etc). Another goal is to display more information in the info window and/or display more infomation at the bottom of the page underneath our map for easier reading.  
 
-Imagine having gps access to find where your favorite artists and makers are temporarily set up at Mayfest, or being able to easily check out the race routes when getting prepped for a rowdy weekend at Tulsa Tough. We have so many stretch goals that will be great additions to our application, so stay tuned!
+Additionally, we have some goals for customizing the web mapping experience based on big events happening in our community throughout the year. Imagine having gps access to find where your favorite artists and makers are temporarily set up at an arts fair (like Mayfest here in Tulsa), or being able to easily check out the bicycle race routes when getting prepped for a rowdy weekend at Tulsa Tough. We have so many stretch goals that will be great additions to our application, so stay tuned!
 
 View our site here --> [Tulsa Maps.](http://tulsamaps.herokuapp.com/)
 
