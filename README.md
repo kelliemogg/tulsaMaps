@@ -65,7 +65,7 @@ To set up and install `express` web-framework, use `npm init` and `npm install e
 Node.js is available under the [MIT license](https://opensource.org/licenses/MIT)
 
 ## Authors
-- Jasmine Choi <https://github.com/jashjchoi>
-- Allen Nicholson <https://github.com/ranicholson>
-- Kellie Mogg <https://github.com/kelliemogg>
-- Lauren Dobratz <https://github.com/laurendobratz00>
+- Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
+- Allen Nicholson <a href="https://github.com/ranicholson">Github</a>
+- Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
+- Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a>
