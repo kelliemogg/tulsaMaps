@@ -3,6 +3,8 @@ let map;
 // Blocks default businesses loading on map
 function initAutocomplete () {
   const map = new google.maps.Map(document.getElementById('map'), {
+    // Center map on Tulsa consisting mmainly of downtown Tulsa which is where
+    // most of the businesses are located from our MongoDB database
     center: { lat: 36.1516, lng: -95.9885 },
     zoom: 15,
     mapTypeId: 'roadmap'
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   map.setOptions({ styles: styles.hide });
     const searchBar = document.getElementById('searchBar');
-// axios GET request for markers and information windows
+// axios GET request for markers and information windows to display details
     axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
       .then(function (response) {
         let marker;
@@ -58,6 +60,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
         for (x = 0; x < response.data.length; x++) {
           currentPlace = response.data[x];
+          // currentCoords gets the JSON coordinates that are returned from the
+          // database and is used to create the marker on the map
           currentCoords = currentPlace.googlegeoJSONcoordinates.coordinates;
           console.log(currentCoords);
           currentLat = currentCoords[1];
