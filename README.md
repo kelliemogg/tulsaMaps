@@ -67,6 +67,7 @@ Node.js is available under the [MIT license](https://opensource.org/licenses/MIT
 ## Challenges
 Some of the challenges in this project were:
 - Finding a way to save the data of only local businesses from Google Places API in a way that was time efficient.
+- Learning how to make Heroku and MongoDB play nice.
 
 ## Authors
 ##### - Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
