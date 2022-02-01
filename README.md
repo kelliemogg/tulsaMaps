@@ -64,8 +64,16 @@ To set up and install `express` web-framework, use `npm init` and `npm install e
 ## License
 Node.js is available under the [MIT license](https://opensource.org/licenses/MIT)
 
+## Challenges
+Some of the challenges in this project were:
+- Finding a way to save the data of only local businesses from Google Places API in a way that was time efficient.
+
 ## Authors
-- Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
-- Allen Nicholson <a href="https://github.com/ranicholson">Github</a>
-- Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
-- Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a>
+##### - Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
+
+##### - Allen Nicholson <a href="https://github.com/ranicholson">Github</a>
+
+##### - Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
+Kellie is studying to be a Web and XR Developer and has a great passion for supporting a small business ecosystem. She enjoyed working with MongoDB and Google Maps API to help bring this project to fruition. 
+
+##### - Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a>
