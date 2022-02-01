@@ -68,14 +68,18 @@ Node.js is available under the [MIT license](https://opensource.org/licenses/MIT
 Some of the challenges in this project were:
 - Finding a way to save the data of only local businesses from Google Places API in a way that was time efficient.
 - Learning how to make Heroku and MongoDB play nice.
+- Returning the correct list of data when the user clicks places on the map.
+- Understading the structure of node.js and MongoDB to set up the database and import the client via MongoDB Altas.
 
 ## Authors
 ##### - Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
+Highly motivated, starting web developer seeking to launch career building web applications and services.
+Eager to obtain a position that will expand her learning and build upon her developer skills.
 
 ##### - Allen Nicholson <a href="https://github.com/ranicholson">Github</a> | <a href="https://www.linkedin.com/in/allen-nicholson/">LinkedIn</a> | <a href="https://twitter.com/allencodes2020">Twitter</a>
 Allen is an amateur software engineer trying to find his way in this strange new world. Everyday he tries to learn a little bit more. Hoping to go pro someday soon.
 
 ##### - Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
-Kellie is studying to be a Web and XR Developer and has a great passion for supporting a small business ecosystem. She enjoyed working with MongoDB and Google Maps API to help bring this project to fruition. 
+Kellie is studying to be a Web and XR Developer and has a great passion for supporting a small business ecosystem. She enjoyed working with MongoDB and Google Maps API to help bring this project to fruition.
 
 ##### - Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a>
