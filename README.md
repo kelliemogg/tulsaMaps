@@ -71,7 +71,8 @@ Some of the challenges in this project were:
 ## Authors
 ##### - Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
 
-##### - Allen Nicholson <a href="https://github.com/ranicholson">Github</a>
+##### - Allen Nicholson <a href="https://github.com/ranicholson">Github</a> | <a href="https://www.linkedin.com/in/allen-nicholson/">LinkedIn</a> | <a href="https://twitter.com/allencodes2020">Twitter</a>
+Allen is an amateur software engineer trying to find his way in this strange new world. Everyday he tries to learn a little bit more. Hoping to go pro someday soon.
 
 ##### - Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
 Kellie is studying to be a Web and XR Developer and has a great passion for supporting a small business ecosystem. She enjoyed working with MongoDB and Google Maps API to help bring this project to fruition. 
