@@ -33,6 +33,7 @@ app.get('/about', (req, res) => {
 
 let collection;
 
+// setting our scope of businesses as locally owned and targeting the downtown area
 app.listen(port, async () => {
   try {
     await client.connect();
