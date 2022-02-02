@@ -83,5 +83,5 @@ Allen is an amateur software engineer trying to find his way in this strange new
 ##### - Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
 Kellie is studying to be a Web and XR Developer and has a great passion for supporting a small business ecosystem. She enjoyed working with MongoDB and Google Maps API to help bring this project to fruition.
 
-##### - Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a> | <a href="https://www.linkedin.com/in/lauren-dobratz-a82a441b7/">LinkedIn</a> | <a href="https://twitter.com/DobratzLauren>"Twitter</a>
+##### - Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a> | <a href="https://www.linkedin.com/in/lauren-dobratz-a82a441b7/">LinkedIn</a> | <a href="https://twitter.com/DobratzLauren>"Twitter</a> 
 Lauren is an aspiring software developer focusing on AR/VR. She hopes to bring creativity and out-of-the-box ideas to the table in her future.
