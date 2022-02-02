@@ -69,7 +69,8 @@ Some of the challenges in this project were:
 - Finding a way to save the data of only local businesses from Google Places API in a way that was time efficient.
 - Learning how to make Heroku and MongoDB play nice.
 - Returning the correct list of data when the user clicks places on the map.
-- Understading the structure of node.js and MongoDB to set up the database and import the client via MongoDB Altas.
+- Understanding the structure of node.js and MongoDB to set up the database and import the client via MongoDB Altas.
+- Connecting the search bar to the data in our MongoDB database.
 
 ## Authors
 ##### - Jasmine Choi <a href="https://github.com/jashjchoi">Github</a>
@@ -82,4 +83,5 @@ Allen is an amateur software engineer trying to find his way in this strange new
 ##### - Kellie Mogg <a href="https://github.com/kelliemogg">Github</a> | <a href="https://www.linkedin.com/in/kelliemogg/">LinkedIn</a> | <a href="https://twitter.com/KellieMogg">Twitter</a>
 Kellie is studying to be a Web and XR Developer and has a great passion for supporting a small business ecosystem. She enjoyed working with MongoDB and Google Maps API to help bring this project to fruition.
 
-##### - Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a>
+##### - Lauren Dobratz <a href="https://github.com/laurendobratz00">Github</a> | <a href="https://www.linkedin.com/in/lauren-dobratz-a82a441b7/">LinkedIn</a> | <a href="https://twitter.com/DobratzLauren>LinkedIn</a>
+Lauren is an aspiring software developer focusing on AR/VR. She hopes to bring creativity and out-of-the-box ideas to the table in her future.
