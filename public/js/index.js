@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   };
 
   map.setOptions({ styles: styles.hide });
+    // storing the id of user input entered in the search bar
     const searchBar = document.getElementById('searchBar');
 // axios GET request for markers and information windows to display details
     axios.get(`https://tulsamaps.herokuapp.com/search?search=${searchBar.value}`)
